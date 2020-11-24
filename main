@@ -1,6 +1,18 @@
 import cv2
 import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.cluster import KMeans
+from sklearn.utils import shuffle
 
+def recreate_image(centers, labels, rows, cols):
+    d = centers.shape[1]
+    image_clusters = np.zeros((rows, cols, d))
+    label_idx = 0
+    for i in range(rows):
+        for j in range(cols):
+            image_clusters[i][j] = centers[labels[label_idx]]
+            label_idx += 1
+    return image_clusters
 
 class Bandera:
 
@@ -25,10 +37,21 @@ class Bandera:
         assert ch == 3
         image_array = np.reshape(self.imagen, (rows * cols, ch))
 
+        model = KMeans(n_clusters=n_colors, random_state=0).fit(image_array_sample)
         labels = model.predict(image_array)
         centers = model.cluster_centers_
-        print("Los colores son", labels)
-    
+        self.labels = labels
+        
+        for labels in range(4):
+            if 0 in labels 
+                colores = 1
+                if 1 in labels:
+                    colores = colores + 1
+                if 2 in labels:
+                    colores = colores + 1
+                if 3 in labels:
+                    colores = colores + 1
+        print("La bandera tiene", colores, "colores")
 
     def Porcentaje(self):
 
