@@ -17,8 +17,17 @@ class Bandera:
 
     def Colores(self)
 
+           for n_cl in range(4):
+        print("Se está haciendo clustering para :", n_cl + 1, 'cluster(s)' )
+        n_colors = n_cl + 1  # Se colocan los valores de centro de color
 
+        rows, cols, ch = self.imagen.shape
+        assert ch == 3
+        image_array = np.reshape(self.imagen, (rows * cols, ch))
 
+        colr = self.imagen.getcolors(rows * cols)
+        num_colores = len(colr)
+        print(u'Número de colores = ', num_colores)
 
 
     def Porcentaje(self):
