@@ -15,5 +15,13 @@ class Bandera:
 
 
 
+    def Colores(self)
 
+
+
+
+
+    def Porcentaje(self):
+
+    def Orientacion(self):
 banderas = Bandera()
