@@ -25,10 +25,10 @@ class Bandera:
         assert ch == 3
         image_array = np.reshape(self.imagen, (rows * cols, ch))
 
-        colr = self.imagen.getcolors(rows * cols)
-        num_colores = len(colr)
-        print(u'Número de colores = ', num_colores)
-
+        labels = model.predict(image_array)
+        centers = model.cluster_centers_
+        print("Los colores son", labels)
+    
 
     def Porcentaje(self):
 
