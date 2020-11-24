@@ -1,0 +1,19 @@
+import cv2
+import numpy as np
+
+
+class Bandera:
+
+    def __init__(self):
+
+        n_bandera = input("Inserte el nombre de la bandera")
+        self.imagen = cv2.imread(n_bandera)
+        cv2.imshow("Bandera", self.imagen)
+        self.imagen = cv2.cvtColor(self.imagen, cv2.COLOR_BGR2RGB) #se convierte la imagen a RGB
+        self.imagen = np.array(self.imagen, dtype=np.float64) / 255
+        cv2.waitKey(0) #Dejar la imagen en pantalla hasta que se presione cualquier cosa
+
+
+
+
+banderas = Bandera()
